@@ -3,4 +3,3 @@ export class TambahData {
     name?:string;
     description?:string;
 }
-

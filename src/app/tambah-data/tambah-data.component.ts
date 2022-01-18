@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TambahData } from '../model/tambah-data.model';
-import { TambahDataComponent } from '../model/tambah-data.model';
+import { TambahDataService } from '../services/tambah-data.service';
 
 @Component({
   selector: 'app-tambah-data',
@@ -9,25 +9,24 @@ import { TambahDataComponent } from '../model/tambah-data.model';
 })
 export class TambahDataComponent implements OnInit {
 
-  tambahdatas?:TambahData[];
+  tambahdata?:TambahData[];
   currentTambahData:TambahData={};
-  name='';
-  constructor(private tambahdataService:TambahDataService) { }
+  name = '';
+  constructor(private tambahdataservice:TambahDataService ) { }
 
   ngOnInit(): void {
     this.retrieveTambahData()
   }
-
   retrieveTambahData():void{
-    this.tambahdataService.getAll()
-    .subscribe(
-      data=>{
-        this.tambahdatas=data;
-        console.log(data);
-      },
-      error=>{
-        console.log(error)
-      }
-    )
+    this.tambahdataservice.getAll()
+      .subscribe(
+        data=>{
+          this.tambahdata=data;
+          console.log(data);
+        },
+        error=>{
+          console.log(error)
+        }
+      )
   }
 }

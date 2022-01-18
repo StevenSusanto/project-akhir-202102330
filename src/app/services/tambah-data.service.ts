@@ -7,7 +7,7 @@ const baseUrl = 'https://spa-api.aqiladigital.com/api/divisions'
 @Injectable({
   providedIn: 'root'
 })
-export class DivisionService { 
+export class TambahDataService {
 
   constructor(private http:HttpClient) { }
 
